@@ -11,6 +11,7 @@
         android:layout_width="150dp"
         android:layout_height="150dp"
         android:src="@drawable/iconmonstr_danger_13"
+        android:tint="@color/material_pinkA100"
         android:layout_centerHorizontal="true"
         android:layout_marginTop="70dp"/>
     <EditText
