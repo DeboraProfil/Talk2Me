@@ -3,7 +3,79 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".SignupActivity">
+    android:layout_height="match_parent">
+
+    <ImageView
+        android:id="@+id/app_logo"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:src="@drawable/liftarn_cat_silhouette"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintLeft_toLeftOf="parent"
+        app:layout_constraintRight_toRightOf="parent"
+        android:layout_marginTop="70dp"
+        app:tint="@color/material_pink100" />
+    <EditText
+        android:id="@+id/edt_email"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        app:layout_constraintTop_toBottomOf="@id/app_logo"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:fontFamily="@font/roboto_mono"
+        android:layout_marginTop="40dp"
+        android:hint="email"
+        android:background="@drawable/edt_background"
+        android:padding="8dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"/>
+
+    <EditText
+        android:id="@+id/edt_password"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edt_background"
+        android:fontFamily="@font/roboto_mono"
+        android:hint="password"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="@id/edt_email"
+        app:layout_constraintStart_toStartOf="@id/edt_email"
+        app:layout_constraintTop_toBottomOf="@id/edt_email" />
+
+    <EditText
+        android:id="@+id/edt_name"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/edt_background"
+        android:fontFamily="@font/roboto_mono"
+        android:hint="name"
+        android:padding="8dp"
+        app:layout_constraintEnd_toEndOf="@id/edt_password"
+        app:layout_constraintStart_toStartOf="@id/edt_password"
+        app:layout_constraintTop_toBottomOf="@id/edt_password" />
+
+
+
+
+    <Button
+        android:id="@+id/btn_signup"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@id/edt_password"
+        android:layout_centerHorizontal="true"
+        android:backgroundTint="@color/material_pink100"
+        android:fontFamily="@font/roboto_mono"
+        android:text="Log in"
+        android:padding="8dp"
+        android:textColor="@color/material_grey900"
+        android:textSize="15sp"
+        app:layout_constraintEnd_toEndOf="@+id/edt_name"
+        app:layout_constraintStart_toStartOf="@+id/edt_name"
+        app:layout_constraintTop_toBottomOf="@+id/edt_name">
+
+    </Button>
+
 
 </androidx.constraintlayout.widget.ConstraintLayout>
