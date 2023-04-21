@@ -29,7 +29,7 @@ class SignupActivity : AppCompatActivity() {
 
 
         btnSignUp.setOnClickListener {
-            val email = edtEmail.text.toString()
+            val email = edtEmail.text.toString().trim()
             val password = edtPassword.text.toString()
             val name = edtName.text.toString()
 
