@@ -4,6 +4,7 @@ import android.content.Context
 import android.content.Intent
 import androidx.appcompat.app.AppCompatActivity
 import android.os.Bundle
+import android.util.Log
 import android.widget.Button
 import android.widget.EditText
 import android.widget.TextView
@@ -15,12 +16,12 @@ class LoginActivity : AppCompatActivity() {
     private lateinit var edtPassword: EditText
     private lateinit var btnLogin: Button
     private lateinit var txtSignUp: TextView
-    private lateinit var mAuth : FirebaseAuth
+    private lateinit var auth : FirebaseAuth
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
-        mAuth = FirebaseAuth.getInstance()
+        auth = FirebaseAuth.getInstance()
 
         edtEmail = findViewById(R.id.edt_email)
         edtPassword = findViewById(R.id.edt_password)
@@ -43,6 +44,22 @@ class LoginActivity : AppCompatActivity() {
     }
 
     private fun login(email: String, password: String) {
+
+        auth.signInWithEmailAndPassword(email, password)
+            .addOnCompleteListener { task ->
+                if (task.isSuccessful){
+                    val user = auth.currentUser
+                    val sharedPref = getSharedPreferences("tinder2", Context.MODE_PRIVATE)
+                    val editor = sharedPref.edit()
+                    editor.putString("userId", user?.uid)
+                    editor.apply()
+                    val intent = Intent(this, MainActivity::class.java)
+                    startActivity(intent)
+                    finish()
+                } else{
+                    Log.e("LOGIN", "ERROR" )
+                }
+            }
 
     }
 }
