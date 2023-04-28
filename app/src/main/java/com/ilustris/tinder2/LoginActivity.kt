@@ -21,6 +21,8 @@ class LoginActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(R.layout.activity_login)
 
+        supportActionBar.hide()
+
         auth = FirebaseAuth.getInstance()
 
         edtEmail = findViewById(R.id.edt_email)
@@ -49,10 +51,6 @@ class LoginActivity : AppCompatActivity() {
             .addOnCompleteListener { task ->
                 if (task.isSuccessful){
                     val user = auth.currentUser
-                    val sharedPref = getSharedPreferences("tinder2", Context.MODE_PRIVATE)
-                    val editor = sharedPref.edit()
-                    editor.putString("userId", user?.uid)
-                    editor.apply()
                     val intent = Intent(this, MainActivity::class.java)
                     startActivity(intent)
                     finish()
